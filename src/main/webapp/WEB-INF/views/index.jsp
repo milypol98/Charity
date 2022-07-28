@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -5,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
+
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
   </head>
   <body>
     <header class="header--main-page">
@@ -99,29 +102,36 @@
           Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-          <li>
-            <div class="col">
-              <div class="title">Fundacja "Dbam o Zdrowie"</div>
-              <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-            </div>
+<%--            musze zrobic zeby lista była co dwa --%>
+            <c:forEach var="instytution" items="${instytution}">
+              <div class="col">
+                <div class="title">Fundacja "${instytution.name}"</div>
+                <div class="subtitle">Cel i misja: "${instytution.description}"</div>
+              </div>
+              <li></li>
+            </c:forEach>
 
-            <div class="col">
-              <div class="title">Fundacja "A kogo"</div>
-              <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-            </div>
-          </li>
 
-          <li>
-            <div class="col">
-              <div class="title">Fundacja “Dla dzieci"</div>
-              <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-            </div>
-            <div class="col">
-              <div class="title">Fundacja “Bez domu”</div>
-              <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-            </div>
 
-          </li>
+
+
+<%--            <div class="col">--%>
+<%--              <div class="title">Fundacja "A kogo"</div>--%>
+<%--              <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>--%>
+<%--            </div>--%>
+<%--          </li>--%>
+
+<%--          <li>--%>
+<%--            <div class="col">--%>
+<%--              <div class="title">Fundacja “Dla dzieci"</div>--%>
+<%--              <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>--%>
+<%--            </div>--%>
+<%--            <div class="col">--%>
+<%--              <div class="title">Fundacja “Bez domu”</div>--%>
+<%--              <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>--%>
+<%--            </div>--%>
+
+<%--          </li>--%>
 
         </ul>
 
