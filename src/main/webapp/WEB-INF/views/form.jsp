@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -5,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
+
   </head>
   <body>
     <header class="header--form-page">
@@ -22,11 +26,11 @@
         </ul>
 
         <ul>
-          <li><a href="index.html" class="btn btn--without-border active">Start</a></li>
-          <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
-          <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
-          <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-          <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
+          <li><a href="index.jsp" class="btn btn--without-border active">Start</a></li>
+          <li><a href="index.jsp#steps" class="btn btn--without-border">O co chodzi?</a></li>
+          <li><a href="index.jsp#about-us" class="btn btn--without-border">O nas</a></li>
+          <li><a href="index.jsp#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+          <li><a href="index.jsp#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -81,11 +85,12 @@
       <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form action="form-confirmation.html" method="post">
+        <form action="form-confirmation.jsp" method="post">
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
 
+            <c:forEach var="categories" items="${categories}">
             <div class="form-group form-group--checkbox">
               <label>
                 <input
@@ -94,47 +99,46 @@
                   value="clothes-to-use"
                 />
                 <span class="checkbox"></span>
-                <span class="description"
-                  >ubrania, które nadają się do ponownego użycia</span
-                >
+                <span class="description">${categories.name}</span>
               </label>
             </div>
+            </c:forEach>
 
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  name="categories"
-                  value="clothes-useless"
-                />
-                <span class="checkbox"></span>
-                <span class="description">ubrania, do wyrzucenia</span>
-              </label>
-            </div>
+<%--            <div class="form-group form-group--checkbox">--%>
+<%--              <label>--%>
+<%--                <input--%>
+<%--                  type="checkbox"--%>
+<%--                  name="categories"--%>
+<%--                  value="clothes-useless"--%>
+<%--                />--%>
+<%--                <span class="checkbox"></span>--%>
+<%--                <span class="description">ubrania, do wyrzucenia</span>--%>
+<%--              </label>--%>
+<%--            </div>--%>
 
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="checkbox" name="categories" value="toys" />
-                <span class="checkbox"></span>
-                <span class="description">zabawki</span>
-              </label>
-            </div>
+<%--            <div class="form-group form-group--checkbox">--%>
+<%--              <label>--%>
+<%--                <input type="checkbox" name="categories" value="toys" />--%>
+<%--                <span class="checkbox"></span>--%>
+<%--                <span class="description">zabawki</span>--%>
+<%--              </label>--%>
+<%--            </div>--%>
 
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="checkbox" name="categories" value="books" />
-                <span class="checkbox"></span>
-                <span class="description">książki</span>
-              </label>
-            </div>
+<%--            <div class="form-group form-group--checkbox">--%>
+<%--              <label>--%>
+<%--                <input type="checkbox" name="categories" value="books" />--%>
+<%--                <span class="checkbox"></span>--%>
+<%--                <span class="description">książki</span>--%>
+<%--              </label>--%>
+<%--            </div>--%>
 
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="checkbox" name="categories" value="other" />
-                <span class="checkbox"></span>
-                <span class="description">inne</span>
-              </label>
-            </div>
+<%--            <div class="form-group form-group--checkbox">--%>
+<%--              <label>--%>
+<%--                <input type="checkbox" name="categories" value="other" />--%>
+<%--                <span class="checkbox"></span>--%>
+<%--                <span class="description">inne</span>--%>
+<%--              </label>--%>
+<%--            </div>--%>
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn next-step">Dalej</button>

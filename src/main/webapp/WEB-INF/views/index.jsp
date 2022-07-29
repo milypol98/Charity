@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
@@ -23,7 +24,7 @@
           <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
           <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
           <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-          <li><a href="form.html" class="btn btn--without-border">Przekaż dary</a></li>
+          <li><a href="<c:url  value="/donations/"/>" class="btn btn--without-border">Przekaż dary</a></li>
           <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
       </nav>
@@ -41,13 +42,13 @@
     <section id="stats" class="stats">
       <div class="container container--85">
         <div class="stats--item">
-          <em>10</em>
+          <em>${quantity}</em>
           <h3>Oddanych worków</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum tempora!</p>
         </div>
 
         <div class="stats--item">
-          <em>5</em>
+          <em>${donation}</em>
           <h3>Przekazanych darów</h3>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas quam.</p>
         </div>
