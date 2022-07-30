@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
 
-    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
+      <link rel="stylesheet" href="/resources/css/style.css" />
   </head>
   <body>
     <header class="header--main-page">
@@ -42,13 +42,13 @@
     <section id="stats" class="stats">
       <div class="container container--85">
         <div class="stats--item">
-          <em>${quantity}</em>
+          <em>${bagsSumQuantity}</em>
           <h3>Oddanych worków</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum tempora!</p>
         </div>
 
         <div class="stats--item">
-          <em>${donation}</em>
+          <em>${donationSum}</em>
           <h3>Przekazanych darów</h3>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas quam.</p>
         </div>
@@ -59,7 +59,7 @@
     <section id="steps" class="steps">
       <h2>Wystarczą 4 proste kroki</h2>
 
-      <div class="steps--container">
+      <div class="steps--container">city
         <div class="steps--item">
           <span class="icon icon--hands"></span>
           <h3>Wybierz rzeczy</h3>
@@ -104,13 +104,22 @@
 
         <ul class="help--slides-items">
 <%--            musze zrobic zeby lista była co dwa --%>
-            <c:forEach var="instytution" items="${instytution}">
+            <c:forEach var="institution" items="${institutions}" varStatus="status" >
+              <c:if test="${status.index % 2 == 0}">
+                <li>
+              </c:if>
               <div class="col">
-                <div class="title">Fundacja "${instytution.name}"</div>
-                <div class="subtitle">Cel i misja: "${instytution.description}"</div>
+                <div class="title">Fundacja "${institution.name}"</div>
+                <div class="subtitle">Cel i misja: "${institution.description}"</div>
               </div>
-              <li></li>
+                <c:if test="${status.index % 2 != 0}">
+                  </li>
+                </c:if>
             </c:forEach>
+        <c:if test="${institutions.size() % 2 != 0}">
+            <div class="col" style="visibility: hidden"></div>
+            </li>
+        </c:if>
 
 
 

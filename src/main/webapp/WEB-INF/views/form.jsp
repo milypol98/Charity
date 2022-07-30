@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
+    <link rel="stylesheet" href="/resources/css/style.css" />
 
   </head>
   <body>
@@ -90,16 +90,15 @@
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
 
-            <c:forEach var="categories" items="${categories}">
+            <c:forEach var="category" items="${categories}">
             <div class="form-group form-group--checkbox">
               <label>
-                <input
-                  type="checkbox"
-                  name="categories"
-                  value="clothes-to-use"
+                <input type="checkbox"
+                       name="categories"
+                       value="${category.id}"
                 />
                 <span class="checkbox"></span>
-                <span class="description">${categories.name}</span>
+                <span class="description">${category.name}</span>
               </label>
             </div>
             </c:forEach>
@@ -345,6 +344,6 @@
       </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="/resources/js/app.js"></script>
   </body>
 </html>

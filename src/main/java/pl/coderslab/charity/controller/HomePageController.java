@@ -17,10 +17,10 @@ public class HomePageController {
         this.donationRepository = donationRepository;
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String HomeShowInstytution(Model model) {
-        model.addAttribute("instytution", institutionRepository.fourElements());
-        model.addAttribute("donation",donationRepository.allDonations());
-        model.addAttribute("quantity" , donationRepository.allQuantity());
+    public String homeShowInstitution(Model model) {
+        model.addAttribute("institutions", institutionRepository.findAll());
+        model.addAttribute("donationSum",donationRepository.count());
+        model.addAttribute("bagsSumQuantity" , donationRepository.allQuantity());
         return "index";
     }
 
