@@ -93,10 +93,11 @@
             <c:forEach var="category" items="${categories}">
             <div class="form-group form-group--checkbox">
               <label>
-                <input type="checkbox"
-                       name="categories"
-                       value="${category.id}"
-                />
+                <form:checkboxes path="categories" items="${category.id}" name="categories"/>
+<%--                <input type="checkbox"--%>
+<%--                       name="categories"--%>
+<%--                       value="${category.id}"--%>
+<%--                />--%>
                 <span class="checkbox"></span>
                 <span class="description">${category.name}</span>
               </label>
@@ -151,7 +152,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <input type="number" name="bags" step="1" min="1" />
+                <form:input path="quantity" type="number" name="bags" step="1" min="1" />
               </label>
             </div>
 
@@ -166,34 +167,35 @@
           <!-- STEP 4 -->
           <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
-
+            <c:forEach var="institution" items="${institutions}" >
             <div class="form-group form-group--checkbox">
               <label>
-                <input type="radio" name="organization" value="old" />
-                <span class="checkbox radio"></span>
-                <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
-                  </div>
-                </span>
-              </label>
-            </div>
 
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="radio" name="organization" value="old" />
+                <form:select path="street" type="radio" name="organization" value="old" />
                 <span class="checkbox radio"></span>
                 <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
+
+                    <div class="title">${institution.name}</div>
+                    <div class="subtitle">${institution.description}</div>
+                    <br/>
                 </span>
+
               </label>
             </div>
+            </c:forEach>
+<%--            <div class="form-group form-group--checkbox">--%>
+<%--              <label>--%>
+<%--                <input type="radio" name="organization" value="old" />--%>
+<%--                <span class="checkbox radio"></span>--%>
+<%--                <span class="description">--%>
+<%--                  <div class="title">Fundacja “Dla dzieci"</div>--%>
+<%--                  <div class="subtitle">--%>
+<%--                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji--%>
+<%--                    życiowej.--%>
+<%--                  </div>--%>
+<%--                </span>--%>
+<%--              </label>--%>
+<%--            </div>--%>
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn prev-step">Wstecz</button>
@@ -209,16 +211,16 @@
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <input type="text" name="address" /> </label>
+                  <label> Ulica <form:input  type="text" name="address" path="street"/> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Miasto <input type="text" name="city" /> </label>
+                  <label> Miasto <form:input type="text" name="city" path="city" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Kod pocztowy <input type="text" name="postcode" />
+                    Kod pocztowy <form:input type="text" name="postcode" path="zip_code" />
                   </label>
                 </div>
 
