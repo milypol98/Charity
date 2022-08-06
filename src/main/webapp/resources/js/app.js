@@ -172,3 +172,14 @@ document.addEventListener("DOMContentLoaded", function() {
     new FormSteps(form);
   }
 });
+const bagQuantity = document.querySelector("#quantity");
+console.log(bagQuantity.attributes)
+const bagQuantitySummary = document.querySelector(".summary--text");
+bagQuantitySummary.textContent = bagQuantity + "ilosc oddanych workow"
+
+const fundationSelect = document.querySelector(".summary--text");
+const fundation = document.querySelector ("#institution");
+fundationSelect.textContent = fundation;
+console.log(fundationSelect);
+console.log(fundation);
+

@@ -24,12 +24,13 @@ public class DonationController {
     public String getDonation(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institutions", institutionRepository.findAll());
+        model.addAttribute("donation", new Donation());
         return "form";
     }
     @RequestMapping(value = "/donations", method = RequestMethod.POST)
     public String addDonation(Donation donation ) {
         donationRepository.save(donation);
-        return "form";
+        return "redirect:/";
     }
 
 }
