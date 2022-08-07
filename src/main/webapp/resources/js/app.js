@@ -163,6 +163,17 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
+      const bagQuantity = document.querySelector("#quantity");
+      console.log(bagQuantity.textContent)
+      const bagQuantitySummary = document.querySelector("#quantitySummary");
+      const categories = document.querySelectorAll('input[name="category"]:checked ~ .description');
+      let categorySummaryText = "";
+      categories.forEach(category => {
+        categorySummaryText += category.innerText + " , ";
+      });
+      bagQuantitySummary.innerText = bagQuantity.value + " ilosc oddanych workow z kategori:" + categorySummaryText;
+
+     const instructions = document.querySelector('input[name="institution"]:checked ~ .description .title');
       // TODO: get data from inputs and show them in summary
     }
 
@@ -171,15 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
-});
-const bagQuantity = document.querySelector("#quantity");
-console.log(bagQuantity.attributes)
-const bagQuantitySummary = document.querySelector(".summary--text");
-bagQuantitySummary.textContent = bagQuantity + "ilosc oddanych workow"
 
-const fundationSelect = document.querySelector(".summary--text");
-const fundation = document.querySelector ("#institution");
-fundationSelect.textContent = fundation;
-console.log(fundationSelect);
-console.log(fundation);
+
+});
 

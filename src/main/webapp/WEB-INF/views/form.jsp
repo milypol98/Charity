@@ -95,7 +95,7 @@
             <c:forEach var="category" items="${categories}">
             <div class="form-group form-group--checkbox">
               <label>
-                <form:checkbox path="category"  name="categories" value="${category.id}" />
+                <form:checkbox path="category"  value="${category.id}" />
                 <span class="checkbox"></span>
                 <span class="description">${category.name}</span>
 <%--               <input type="checkbox"--%>
@@ -154,7 +154,7 @@
             <div class="form-group form-group--inline">
               <label class = bagsQuantity>
                 Liczba 60l worków:
-                <form:input path="quantity" type="number" name="bags" step="1" min="1"/>
+                <form:input path="quantity" type="number" value="1" name="bags" step="1" min="1"/>
               </label>
             </div>
 
@@ -173,7 +173,7 @@
             <div class="form-group form-group--checkbox">
               <label>
 
-                <form:radiobutton path="institution" name="organization" />
+                <form:radiobutton path="institution" value="${institution.id}"/>
                 <span class="checkbox radio"></span>
                 <span class="description">
 
@@ -271,7 +271,7 @@
                 <ul>
                   <li>
                     <span class="icon icon-bag"></span>
-                    <span class="summary--text">dfgfgdfgd</span>
+                    <span class="summary--text" id="quantitySummary"></span>
                   </li>
 
                   <li>
