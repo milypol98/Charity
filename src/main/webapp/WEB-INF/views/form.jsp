@@ -27,11 +27,11 @@
         </ul>
 
         <ul>
-          <li><a href="index.jsp" class="btn btn--without-border active">Start</a></li>
-          <li><a href="index.jsp#steps" class="btn btn--without-border">O co chodzi?</a></li>
-          <li><a href="index.jsp#about-us" class="btn btn--without-border">O nas</a></li>
-          <li><a href="index.jsp#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-          <li><a href="index.jsp#contact" class="btn btn--without-border">Kontakt</a></li>
+          <li><a href="http://localhost:8080/" class="btn btn--without-border active">Start</a></li>
+          <li><a href="http://localhost:8080/#steps" class="btn btn--without-border">O co chodzi?</a></li>
+          <li><a href="http://localhost:8080/#about-us" class="btn btn--without-border">O nas</a></li>
+          <li><a href="http://localhost:8080/#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+          <li><a href="http://localhost:8080/#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -232,7 +232,7 @@
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Numer telefonu <input type="phone" name="phone" />
+                    Numer telefonu <input type="phone" name="phone" id="phone" />
                   </label>
                 </div>
               </div>
@@ -276,7 +276,7 @@
 
                   <li>
                     <span class="icon icon-hand"></span>
-                    <span class="summary--text"></span
+                    <span class="summary--text" id="instruction"></span
                     >
                   </li>
                 </ul>
@@ -285,20 +285,20 @@
               <div class="form-section form-section--columns">
                 <div class="form-section--column">
                   <h4>Adres odbioru:</h4>
-                  <ul>
-                    <li>Prosta 51</li>
-                    <li>Warszawa</li>
-                    <li>99-098</li>
-                    <li>123 456 789</li>
+                  <ul id="address">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                   </ul>
                 </div>
 
                 <div class="form-section--column">
                   <h4>Termin odbioru:</h4>
-                  <ul>
-                    <li>13/12/2018</li>
-                    <li>15:40</li>
-                    <li>Brak uwag</li>
+                  <ul id="milypol">
+                    <li></li>
+                    <li></li>
+                    <li></li>
                   </ul>
                 </div>
               </div>
