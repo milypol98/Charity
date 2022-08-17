@@ -163,6 +163,42 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
+      const bagQuantity = document.querySelector("#quantity");
+      const bagQuantitySummary = document.querySelector("#quantitySummary");
+      const categories = document.querySelectorAll('input[name="category"]:checked ~ .description');
+      let categorySummaryText = "";
+      categories.forEach(category => {
+        categorySummaryText += category.innerText + " , ";
+      });
+      bagQuantitySummary.innerText = bagQuantity.value + " to jest ilosc oddanych workow z kategori: " + categorySummaryText;
+
+     const instructions = document.querySelector('input[name="institution"]:checked ~ .description .title');
+     const instructionsText = document.querySelector("#instruction");
+      instructionsText.innerText = "fundacija na ktora odajesz dary to " + instructions.innerText;
+
+      const address = document.querySelector("#address");
+      const addressDetails = address.children;
+      const street = document.querySelector("#street");
+      const city = document.querySelector("#city");
+      const zipCode = document.querySelector("#zipCode");
+      const phone = document.querySelector("#phone");
+      addressDetails[0].innerText = "Ulica: " + street.value;
+      addressDetails[1].innerText = "Miasto: " + city.value;
+      addressDetails[2].innerText = "Kod Pocztowy: " + zipCode.value;
+      addressDetails[3].innerText = "Numer Telefonu: " + phone.value;
+
+      const pickupDate = document.querySelector("#milypol");
+      const pickupDateDetails = pickupDate.children;
+      console.log(pickupDateDetails[1])
+      const date = document.querySelector("#pickUpDate");
+      const pickupTime = document.querySelector("#pickupTime");
+      const pickUpComment = document.querySelector("#pickUpComment");
+      console.log(pickupTime.value)
+      pickupDateDetails[0].innerText = "Data Odbioru " + date.value;
+      pickupDateDetails[1].innerText = "Czas odbioru " + pickupTime.value;
+      pickupDateDetails[2].innerText = "Uwagi do kurjera " + pickUpComment.value;
+
+
       // TODO: get data from inputs and show them in summary
     }
 
@@ -171,4 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+
 });
+
