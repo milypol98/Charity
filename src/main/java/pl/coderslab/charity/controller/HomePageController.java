@@ -23,5 +23,9 @@ public class HomePageController {
         model.addAttribute("bagsSumQuantity" , donationRepository.allQuantity());
         return "index";
     }
+    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
 
 }
